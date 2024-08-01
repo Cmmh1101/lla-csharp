@@ -31,3 +31,4 @@
 /Users/carlamontano/Desktop/code/LLA/LearningLanguageApi/obj/Debug/net8.0/LearningLanguageApi.pdb
 /Users/carlamontano/Desktop/code/LLA/LearningLanguageApi/obj/Debug/net8.0/LearningLanguageApi.genruntimeconfig.cache
 /Users/carlamontano/Desktop/code/LLA/LearningLanguageApi/obj/Debug/net8.0/ref/LearningLanguageApi.dll
+/Users/carlamontano/Desktop/code/LLA/LearningLanguageApi/obj/Debug/net8.0/LearningLanguageApi.sourcelink.json
