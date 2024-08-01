@@ -69,6 +69,10 @@ MyFirstApi/
 ├── Controllers/
 │   ├── HelloWorldController.cs
 │   └── anotherController.cs
+├── .github/
+    └── workflows/
+        └── ci.yml
+|
 ├── Properties/
 │   └── launchSettings.json
 ├── Program.cs
@@ -82,6 +86,7 @@ MyFirstApi/
 - Startup.cs: Configures services and the app's request pipeline.
 - MyFirstApi.csproj: Project file that defines the project and its dependencies.
 - README.md: Project documentation.
+- Github workflows: Create workflows for automated testing, building, and deployment.
 
 ### Contributing
 We welcome contributions to enhance the project! Please follow these steps:
@@ -92,6 +97,14 @@ We welcome contributions to enhance the project! Please follow these steps:
 4. Push to the branch (git push origin feature/your-feature).
 Open a pull request.
 5. Pull request will be reviewed and approved 
+
+### Branching Strategy: GitHub Flow for better code management.
+
+Main Branch: Production-ready code.
+Develop Branch: Integration branch for features.
+Feature Branches: For individual features or bug fixes.
+Release Branches: For preparing production releases.
+Hotfix Branches: For quick fixes in production.
 
 ### License
 This project is licensed under the MIT License - see the LICENSE file for details.
