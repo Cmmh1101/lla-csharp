@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "vzo8BYI/V+WSgXO5jAh14St600xXIqqsVx/l9/RofFEQhT22RGAQS3nAXQdY++bXgOF2BhXueRu1ZYF+bdwvcQ==",
+  "dgSpecHash": "u3CtFh3o13So4dIG6+xIRouX9V9o7SQqywx0X8jogodxMf9oqsY5L8MepIDF5THvYADGycR8B7xsRa77gctNng==",
   "success": true,
   "projectFilePath": "/Users/carlamontano/Desktop/code/LLA/LearningLanguageApi/LearningLanguageApi.csproj",
   "expectedPackageFiles": [
     "/Users/carlamontano/.nuget/packages/microsoft.aspnetcore.openapi/8.0.2/microsoft.aspnetcore.openapi.8.0.2.nupkg.sha512",
     "/Users/carlamontano/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/Users/carlamontano/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/carlamontano/.nuget/packages/stylecop.analyzers/1.1.118/stylecop.analyzers.1.1.118.nupkg.sha512",
     "/Users/carlamontano/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "/Users/carlamontano/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "/Users/carlamontano/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
