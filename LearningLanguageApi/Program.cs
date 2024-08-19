@@ -1,12 +1,37 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using LearningLanguageApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddControllers(); // Line to register controllers
+builder.Services.AddControllers(); // Register controllers
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Configure Entity Framework and register the context
+builder.Services.AddDbContext<LearningLanguageContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+// Configure JWT authentication for Auth0
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = $"https://{builder.Configuration["Auth0:Domain"]}/";
+        options.Audience = builder.Configuration["Auth0:Audience"];
+
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            NameClaimType = "name",
+            RoleClaimType = "roles"
+        };
+    });
+
+// Add authorization
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -19,48 +44,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseRouting(); // Line to use routing
+app.UseRouting(); // Enable routing
 
-app.UseAuthorization();
+app.UseAuthentication(); // Add authentication middleware
+app.UseAuthorization();  // Add authorization middleware
 
-app.MapControllers(); // Line to map controllers
+app.MapControllers(); // Map controllers
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
 app.Run();
-namespace MyFirstApi.Controllers
-{
-    [ApiController]
-    [Route("[controller]")]
-    public class HelloWorldController : ControllerBase
-    {
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "Hello", "World" };
-        }
-    }
-}
-
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
